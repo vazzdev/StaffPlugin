@@ -1,0 +1,108 @@
+name: StaffPlugin
+version: 1.0.0
+main: me.staffplugin.staffplugin.StaffPlugin
+api-version: 1.19
+author: SeuNome
+description: Plugin completo para staff do servidor
+
+commands:
+  staff:
+    description: Menu de ajuda da staff
+    usage: /<command>
+    permission: staff.help
+  ban:
+    description: Banir um jogador permanentemente
+    usage: /<command> <jogador> <motivo>
+    permission: staff.ban
+  tempban:
+    description: Banir um jogador temporariamente
+    usage: /<command> <jogador> <tempo> <motivo>
+    permission: staff.tempban
+  unban:
+    description: Desbanir um jogador
+    usage: /<command> <jogador>
+    permission: staff.unban
+  editban:
+    description: Editar um banimento
+    usage: /<command> <jogador> <novo motivo>
+    permission: staff.editban
+  staffchat:
+    description: Chat da equipe
+    usage: /<command> [mensagem]
+    aliases: [sc]
+    permission: staff.chat
+  vanish:
+    description: Ativar/desativar modo invisível
+    usage: /<command>
+    aliases: [v]
+    permission: staff.vanish
+  setrank:
+    description: Definir cargo de um jogador
+    usage: /<command> <jogador> <cargo>
+    permission: staff.setrank
+  addperm:
+    description: Adicionar/remover permissão de um jogador
+    usage: /<command> <jogador> <add/remove> <permissão>
+    permission: staff.addperm
+  clearchat:
+    description: Limpar o chat do servidor
+    usage: /<command>
+    permission: staff.clearchat
+  kick:
+    description: Expulsar um jogador do servidor
+    usage: /<command> <jogador> <motivo>
+    permission: staff.kick
+  mute:
+    description: Silenciar um jogador
+    usage: /<command> <jogador> <tempo> [motivo]
+    permission: staff.mute
+
+permissions:
+  staff.*:
+    description: Acesso a todos os comandos de staff
+    children:
+      staff.help: true
+      staff.ban: true
+      staff.tempban: true
+      staff.unban: true
+      staff.editban: true
+      staff.chat: true
+      staff.vanish: true
+      staff.setrank: true
+      staff.addperm: true
+      staff.clearchat: true
+      staff.kick: true
+      staff.mute: true
+      staff.join.notify: true
+      staff.vanish.see: true
+      staff.clearchat.bypass: true
+  staff.help:
+    description: Permissão para ver o menu de ajuda
+  staff.ban:
+    description: Permissão para banir jogadores
+  staff.tempban:
+    description: Permissão para banir temporariamente
+  staff.unban:
+    description: Permissão para desbanir jogadores
+  staff.editban:
+    description: Permissão para editar banimentos
+  staff.chat:
+    description: Permissão para usar o staff chat
+  staff.vanish:
+    description: Permissão para usar vanish
+  staff.vanish.see:
+    description: Permissão para ver jogadores em vanish
+  staff.setrank:
+    description: Permissão para definir cargos
+  staff.addperm:
+    description: Permissão para gerenciar permissões
+  staff.clearchat:
+    description: Permissão para limpar o chat
+  staff.clearchat.bypass:
+    description: Não ter o chat limpo
+  staff.kick:
+    description: Permissão para expulsar jogadores
+  staff.mute:
+    description: Permissão para silenciar jogadores
+  staff.join.notify:
+    description: Receber notificações de staff online

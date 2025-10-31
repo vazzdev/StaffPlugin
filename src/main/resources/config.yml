@@ -1,0 +1,247 @@
+# StaffPlugin Configuration
+# Plugin completo para staff do servidor Minecraft
+
+# Configurações Gerais
+settings:
+  # Prefixo das mensagens do plugin
+  prefix: "&8[&cStaff&8] &7"
+  # Idioma (pt_BR, en_US, etc)
+  language: "pt_BR"
+  # Ativar logs de ações da staff
+  enable-staff-logs: true
+  # Pasta de logs
+  logs-folder: "logs/staff"
+
+# Configurações de Banimento
+ban:
+  # Formato da mensagem de banimento
+  ban-message: |
+    &c&lVOCÊ FOI BANIDO!
+    &7
+    &fMotivo: &e{reason}
+    &fStaff: &e{staff}
+    &fData: &e{date}
+    &fTipo: &e{type}
+    &7
+    &cPara apelar, visite: &fwww.seuservidor.com/apelar
+
+  # Formato da mensagem de banimento temporário
+  tempban-message: |
+    &c&lVOCÊ FOI BANIDO TEMPORARIAMENTE!
+    &7
+    &fMotivo: &e{reason}
+    &fStaff: &e{staff}
+    &fDuração: &e{duration}
+    &fData: &e{date}
+    &7
+    &cPara apelar, visite: &fwww.seuservidor.com/apelar
+
+  # Broadcast de banimento no servidor
+  broadcast-ban: true
+  broadcast-format: "&8[&4⚡&8] &c{player} &7foi banido por &c{staff}&7! &8[&f{reason}&8]"
+
+  # Configurações de tempo padrão para tempban
+  default-durations:
+    spam: "1h"
+    flood: "30m"
+    hacking: "30d"
+    ofensa: "7d"
+
+# Configurações do Staff Chat
+staff-chat:
+  # Formato das mensagens no staff chat
+  format: "&8[&4Staff&8] &c{player} &8» &f{message}"
+  # Ativar/desativar staff chat
+  enabled: true
+  # Prefixo para enviar mensagem sem usar comando
+  quick-prefix: "!"
+  # Cores personalizadas por rank
+  rank-colors:
+    admin: "&4"
+    mod: "&2"
+    "mod+": "&a"
+    trial: "&9"
+    helper: "&e"
+    builder: "&3"
+
+# Configurações de Vanish
+vanish:
+  # Efeitos ao ativar vanish
+  effects:
+    # Esconder da lista de jogadores
+    hide-from-tablist: true
+    # Mostrar como modo espectador
+    show-as-spectator: false
+    # Imitar gamemode 3 (espectador antigo)
+    show-as-gamemode-3: true
+    # Particulas ao ativar/desativar
+    particles: true
+
+  # Permissão para ver jogadores em vanish
+  see-permission: "staff.vanish.see"
+
+  # Mensagens
+  messages:
+    enabled: "&aVanish ativado! &7Você está invisível."
+    disabled: "&cVanish desativado! &7Você está visível."
+
+# Configurações de Mute
+mute:
+  # Formato da mensagem de mute
+  mute-message: |
+    &c&lVOCÊ FOI SILENCIADO!
+    &7
+    &fMotivo: &e{reason}
+    &fStaff: &e{staff}
+    &fDuração: &e{duration}
+    &7
+    &cExpira em: &e{expires}
+
+  # Tempos padrão para mute
+  default-durations:
+    spam: "1h"
+    ofensa: "6h"
+    flood: "30m"
+    propaganda: "24h"
+
+# Configurações de Ranks
+ranks:
+  # Formatação de chat para cada rank
+  chat-formats:
+    admin: "&8[&4ADMIN&8] &c{player} &8» &f{message}"
+    mod: "&8[&2MOD&8] &a{player} &8» &f{message}"
+    "mod+": "&8[&aMOD+&8] &b{player} &8» &f{message}"
+    trial: "&8[&9TRIAL&8] &3{player} &8» &f{message}"
+    helper: "&8[&eHELPER&8] &6{player} &8» &f{message}"
+    builder: "&8[&3BUILDER&8] &b{player} &8» &f{message}"
+    youtuber: "&8[&cYT&8] &f{player} &8» &7{message}"
+    "youtuber+": "&8[&4YT+&8] &c{player} &8» &7{message}"
+    vip_volt: "&8[&6VIP VOLT&8] &e{player} &8» &f{message}"
+    vip: "&8[&aVIP&8] &2{player} &8» &f{message}"
+    vip_eternal: "&8[&dVIP ETERNAL&8] &5{player} &8» &f{message}"
+    vip_mvp: "&8[&bVIP MVP&8] &3{player} &8» &f{message}"
+    default: "&7{player} &8» &f{message}"
+
+  # Permissões automáticas para cada rank
+  auto-permissions:
+    admin:
+      - "staff.*"
+      - "minecraft.command.*"
+    mod:
+      - "staff.ban"
+      - "staff.tempban"
+      - "staff.kick"
+      - "staff.mute"
+      - "staff.chat"
+      - "staff.vanish"
+    "mod+":
+      - "staff.ban"
+      - "staff.tempban"
+      - "staff.kick"
+      - "staff.mute"
+      - "staff.chat"
+      - "staff.vanish"
+      - "staff.clearchat"
+    trial:
+      - "staff.kick"
+      - "staff.mute"
+      - "staff.chat"
+    helper:
+      - "staff.mute"
+      - "staff.chat"
+    builder:
+      - "worldedit.*"
+      - "voxelsniper.*"
+
+# Configurações de Mensagens
+messages:
+  # Mensagens de erro
+  errors:
+    no-permission: "&cVocê não tem permissão para executar este comando!"
+    player-not-found: "&cJogador não encontrado!"
+    player-offline: "&cJogador offline!"
+    invalid-arguments: "&cArgumentos inválidos! Use: &7{usage}"
+    console-not-allowed: "&cApenas jogadores podem usar este comando!"
+
+  # Mensagens de sucesso
+  success:
+    player-banned: "&aJogador &e{player} &abanido com sucesso!"
+    player-unbanned: "&aJogador &e{player} &adesbanido com sucesso!"
+    player-kicked: "&aJogador &e{player} &aexpulso com sucesso!"
+    player-muted: "&aJogador &e{player} &asilenciado por &e{duration}&a!"
+    rank-updated: "&aCargo de &e{player} &aatualizado para &e{rank}&a!"
+
+  # Mensagens de informação
+  info:
+    staff-join: "&8[&a+&8] &7{player} &aentrou no servidor"
+    staff-quit: "&8[&c-&8] &7{player} &csaiu do servidor"
+    chat-cleared: "&eO chat foi limpo por &6{staff}&e!"
+
+# Configurações de Logs
+logging:
+  # Logar ações de banimento
+  log-bans: true
+  # Logar ações de kick
+  log-kicks: true
+  # Logar ações de mute
+  log-mutes: true
+  # Logar comandos da staff
+  log-staff-commands: true
+
+  # Formato de data para logs
+  date-format: "dd/MM/yyyy HH:mm:ss"
+
+  # Arquivos de log
+  log-files:
+    bans: "bans.log"
+    kicks: "kicks.log"
+    mutes: "mutes.log"
+    staff: "staff_commands.log"
+
+# Configurações de Cooldown
+cooldowns:
+  # Cooldown entre comandos (em segundos)
+  commands:
+    ban: 3
+    tempban: 3
+    kick: 2
+    mute: 2
+    clearchat: 10
+
+  # Bypass de cooldown para ranks altos
+  bypass-cooldown:
+    - "admin"
+    - "mod"
+
+# Configurações de Segurança
+security:
+  # Prevenir banimento de staff com rank igual ou maior
+  prevent-higher-rank-ban: true
+  # Notificar staff online quando outro staff for banido
+  notify-staff-on-ban: true
+  # Registrar IPs de jogadores banidos
+  log-banned-ips: true
+
+  # Ranks protegidos (não podem ser banidos por ranks inferiores)
+  protected-ranks:
+    - "admin"
+    - "mod"
+    - "mod+"
+
+# Configurações de Performance
+performance:
+  # Salvar dados a cada X segundos
+  auto-save-interval: 300
+  # Limpar cache de jogadores offline a cada X minutos
+  cache-cleanup-interval: 30
+  # Máximo de logs em memória antes de salvar em arquivo
+  max-logs-in-memory: 100
+
+# Configurações de Update
+update:
+  # Verificar atualizações automaticamente
+  check-updates: true
+  # Download automático de updates
+  auto-download: false
+  # Notificar staff sobre updates
+  notify-staff: true
